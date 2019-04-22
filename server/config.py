@@ -7,7 +7,11 @@ class EnvironmentConfig:
     """ Most settings can be defined through environment variables. """
 
     # Load configuration from file
-    load_dotenv(os.path.join(os.path.dirname(__file__), 'tasking-manager.env'))
+    print ("##################### loading env")
+    try:
+      load_dotenv(os.path.join(os.path.dirname(__file__), 'tasking-manager.env'))
+    except Exception as e:
+      print (e)
 
     # The base url the application is reachable
     APP_BASE_URL = os.getenv('TM_APP_BASE_URL', 'http://127.0.0.1:5000')
